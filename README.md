@@ -70,6 +70,7 @@ The model was trained entirely on the cloud to bypass local hardware limitations
 ## Model Validation Performance & Metrics
 
 After completing the training pipeline, the custom-trained YOLOv8s model was evaluated on the validation dataset. The quantitative results demonstrate exceptional precision, high generalization, and real-time processing capabilities.
+
 <img width="920" height="73" alt="357043c6-2836-4084-9f4b-1d29e2f8e4ba" src="https://github.com/user-attachments/assets/ac04b842-e28d-43ee-8a31-0f3cb6b11e4a" />
 
 ### 1. High Performance via Few-Shot Learning 
@@ -82,10 +83,10 @@ The system was evaluated using 26 validation images containing 26 independent fi
 
 | Metric | Value | Meaning & Evaluation |
 | :--- | :--- | :--- |
-| **Precision (P)** | `0.961` (96.1%) | Out of all objects the model predicted as fire extinguishers, **96.1%** were correct. This indicates an extremely low rate of false positives. |
-| **Recall (R)** | `0.958` (95.8%) | The model successfully identified **95.8%** of the actual fire extinguishers present in the images, demonstrating excellent target retrieval. |
-| **mAP50** | `0.963` (96.3%) | The mean Average Precision at an Intersection over Union (IoU) threshold of 0.5 reaches **96.3%**, proving the model is incredibly accurate at locating safety equipment. |
-| **mAP50-95** | `0.645` (64.5%) | The average mAP calculated across a strict span of IoU thresholds (0.5 to 0.95) is **64.5%**, which is a highly competitive score indicating precise boundary box localization. |
+| **Precision (P)** | `0.961` | Out of all objects the model predicted as fire extinguishers, **96.1%** were correct. This indicates an extremely low rate of false positives. |
+| **Recall (R)** | `0.958` | The model successfully identified **95.8%** of the actual fire extinguishers present in the images, demonstrating excellent target retrieval. |
+| **mAP50** | `0.963` | The mean Average Precision at an Intersection over Union (IoU) threshold of 0.5 reaches **96.3%**, proving the model is incredibly accurate at locating safety equipment. |
+| **mAP50-95** | `0.645` | The average mAP calculated across a strict span of IoU thresholds (0.5 to 0.95) is **64.5%**, which is a highly competitive score indicating precise boundary box localization. |
 
 ### 3. Inference Speed & Latency Analysis
 The model exhibits outstanding processing speeds per image during local execution:
