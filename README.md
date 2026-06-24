@@ -1,26 +1,75 @@
-# Real-Time Fire Extinguisher Detection System 🧯
+# Real-Time Fire Extinguisher Detection System
 
 Real-time fire extinguisher detection system built with YOLOv8 and OpenCV. Replaced traditional classification with advanced deep learning to provide precise bounding box localization. Highly optimized using custom dataset training via Google Colab. Achieves seamless, low-latency live webcam tracking for facility hazard monitoring.
 
-## 🌟 Features
+## Features
 
 * **High-Precision Object Detection:** Utilizes the cutting-edge YOLOv8 architecture to not only classify but also accurately draw bounding boxes around fire extinguishers in complex environments.
-* **Real-Time Inference:** Optimized with `yolov8n` (nano) weights to run smoothly on standard local hardware (e.g., laptop webcams) without severe latency or frame drops.
+* **Enhanced Model Architecture:** Upgraded to and optimized with `yolov8s` (small) weights to achieve a better balance between higher detection accuracy and real-time performance on local hardware.
 * **Custom Dataset:** Trained on a meticulously hand-annotated dataset featuring 121 real-world images with diverse lighting, angles, and background clutter to ensure robustness against false positives.
 
-## 🎬 Demonstration
+## Demonstration
 
-*<video src="[影片網址](https://youtu.be/_UGoffoEEOc?si=6XJvAWaXINltOIFa)" width="100%" controls autoplay loop></video>*
+[![Watch the Demo](https://img.youtube.com/vi/_UGoffoEEOc/maxresdefault.jpg)](https://youtu.be/_UGoffoEEOc)
 
-## 📁 Repository Structure
+## Repository Structure
 
 * `detect_yolo_final.py`: The main Python script that initializes the webcam, loads the model, and performs real-time inference using OpenCV.
-* `best.pt`: The custom-trained YOLOv8 model weights.
+* `best.pt`: The custom-trained YOLOv8s model weights.
 * `requirements.txt`: The list of required Python dependencies to replicate the environment.
 
-## ⚙️ Installation
+## Installation
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
-   cd YOUR_REPOSITORY_NAME
+   git clone https://github.com/javay1207/Real-Time_Fire_Extinguisher_Detection_System.git
+   cd Real-Time_Fire_Extinguisher_Detection_System
+   ```
+
+2.**(Optional but recommended) Create a virtual environment:**
+   ```bash
+   python -m venv venv
+   # On Windows:
+   venv\Scripts\activate
+   # On Mac/Linux:
+   source venv/bin/activate
+   ```
+
+3.**Install the dependencies:**
+```bash
+   pip install -r requirements.txt
+```
+4.**Inference:**
+Ensure your computer's webcam is connected and accessible. Run the following command in your terminal:
+```bash
+python detect_yolo_final.py
+```
+The system will open a window displaying the live camera feed with detection bounding boxes and confidence scores.
+
+
+## Training Pipeline
+The model was trained entirely on the cloud to bypass local hardware limitations with custom hyperparameter tuning:
+
+* Data Preparation: 121 images were collected and annotated using Roboflow. The dataset was split into Training (70%), Validation (20%), and Testing (10%) sets.
+
+* Model Architecture: YOLOv8 small (yolov8s.pt).
+
+* Hardware & Parameters: Trained via Google Colab (Tesla T4 GPU) using the following custom configuration:
+
+* epochs=40: Extended training duration for better convergence.
+
+* imgsz=800: Increased image resolution to capture finer details of distant fire extinguishers.
+
+* batch=8: Optimized batch processing for the cloud GPU memory.
+
+* **Results:** The model successfully converged, demonstrating exceptional precision and a mean Average Precision (mAP50) approaching 1.0 (nearly 100%) on the validation set, with zero false positives on pure background images.
+<img width="2400" height="1200" alt="下載 (1)" src="https://github.com/user-attachments/assets/6a277d66-bc9f-476a-9ff8-22aaf9828e12" />
+
+## Practical Applications
+This system is designed with real-world smart facility management in mind:
+
+* **Smart Campus Safety Inspection:** Can be integrated into existing CCTV infrastructure to autonomously monitor whether fire safety equipment is present and unobstructed.
+
+* **Emergency Evacuation Assistance:** Serves as a visual aid during emergencies (e.g., smoke or low visibility) to help personnel quickly locate the nearest fire extinguisher.
+
+* **Facility Maintenance Management:** Streamlines routine equipment checks for maintenance staff using mobile devices, replacing manual logs with automated visual verification.
