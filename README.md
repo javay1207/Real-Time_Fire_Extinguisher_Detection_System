@@ -38,14 +38,14 @@ Real-time fire extinguisher detection system built with YOLOv8 and OpenCV. Repla
 
 3. **Install the dependencies:**
    ```bash
-      pip install -r requirements.txt
+   pip install -r requirements.txt
    ```
 4. **Inference:**  
 Ensure your computer's webcam is connected and accessible. Run the following command in your terminal:
    ```bash
    python detect_yolo_final.py
    ```
-The system will open a window displaying the live camera feed with detection bounding boxes and confidence scores.
+  The system will open a window displaying the live camera feed with detection bounding boxes and confidence scores.
 
 
 ## Training Pipeline
