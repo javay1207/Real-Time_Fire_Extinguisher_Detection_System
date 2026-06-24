@@ -45,7 +45,8 @@ Ensure your computer's webcam is connected and accessible. Run the following com
    ```bash
    python detect_yolo_final.py
    ```
-  The system will open a window displaying the live camera feed with detection bounding boxes and confidence scores.
+   
+The system will open a window displaying the live camera feed with detection bounding boxes and confidence scores.
 
 
 ## Training Pipeline
